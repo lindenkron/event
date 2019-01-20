@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Classic WOW</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css" integrity="sha256-itWEYdFWzZPBG78bJOOiQIn06QCgN/F0wMDcC4nOhxY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/event.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" href="images/favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon-180x180.png" sizes="180x180" />
+
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu show-for-small-only">
+          <li class="menu-text"><img src="./images/favicon.png"> Classic WOW Event</li>
+        </ul>
+        <ul class="menu show-for-medium">
+          <li class="menu-text"><img src="./images/favicon.png"> Classic WOW Event</li>
+        </ul>
+      </div>
+      <div class="top-bar-right show-for-medium">
+        <ul class="menu">
+          <li><a id="switch-desktop"><i class="far fa-sun"></i> Light Mode</a></li>
+        </ul>
+      </div>
+    </div><br />
+    <div class="column row" id="content">
+      
+      <label for="title-field">Title</label>
+      <p class="help-text" id="title-help">Event/Group/Raid name (Example: Molten Core)</p>
+      <input type="text" id="title-field" aria-describedby="title-help" required>
+      <label for="desc-field">Description</label>
+      <p class="help-text" id="desc-help">Specific details about and general information about the event.</p>
+      <textarea name="desc-description" id="desc-field" aria-describedby="desc-help" required></textarea>
+      <div class="callout warn hidden" id="lrg-rep">
+        <p>Your description is too long. Shorten it down and stay under 1000 characters, then try and copy again.</p>
+      </div>
+      <label for="date-field">Date</label>
+      <p class="help-text" id="date-help">When will the event take place (Example: 20/1/2019, 8 PM CET)</p>
+      <input type="text" id="date-field" aria-describedby="date-help" required>
+      <label for="dura-field">Duration</label>
+      <p class="help-text" id="dura-help">How long is the event expected to take? (Example: 3~ hours)</p>
+      <input type="text" id="dura-field" aria-describedby="dura-help" required>
+      <label>Application typeform</label>
+      <p class="help-text" id="syntax-help">Copy the text below and paste it into the appropriate channel. Note: This field will be empty until all required fields are filled in</p>
+      <div class="callout syntaxbox">
+        <pre class="bug-syntax" id="syntax"></pre>
+        <button type="button" class="button cb-btn" id="copy-btn" title="Click to copy text">Copy</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js" integrity="sha256-Nd2xznOkrE9HkrAMi4xWy/hXkQraXioBg9iYsBrcFrs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <script src="js/event.js"></script>
+    <script>
+      $(document).foundation();
+      $(document).ready(pageLoad('create'));
+    </script>
+  </body>
+</html>
