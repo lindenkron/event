@@ -33,20 +33,43 @@
     <div class="column row" id="content">
       
       <label for="title-field">Title</label>
-      <p class="help-text" id="title-help">Event/Group/Raid name (Example: Molten Core)</p>
-      <input type="text" id="title-field" aria-describedby="title-help" required>
+      <p class="help-text" id="title-help">Event/Group/Raid</p>
+      <select name="title-description" style="width: 220px" id="title-field" name="title">
+        <option disabled="true">--- Select a dungeon ---</option>
+        <option value="Blackwing Lair">Blackwing Lair (40)</option>
+        <option value="Molten Core">Molten Core (40)</option>
+        <option value="Naxxramas">Naxxramas (40)</option>
+        <option value="Ruins of Ahn'Qiraj">Ruins of Ahn'Qiraj (20)</option>
+        <option value="Temple of Ahn'Qiraj">Temple of Ahn'Qiraj (40)</option>
+        <option value="Scholomance">Scholomance (5)</option>
+        <option value="Stratholme">Stratholme (5)</option>
+        <option value="Lower Blackrock Spire">Lower Blackrock Spire (10)</option>
+        <option value="Upper Blackrock Spire">Upper Blackrock Spire (10)</option>
+        <option value="Zul'Gurub">Zul'Gurub (20)</option>
+        <option value="Other">Other</option>
+      </select>
+      <div class="hidden" id="Other">
+      <input type="text" style="width: 255px" id="other-field" aria-describedby="other-help" required>
+      </div>
       <label for="desc-field">Description</label>
-      <p class="help-text" id="desc-help">Specific details about and general information about the event.</p>
+      <p class="help-text" id="desc-help">Specific details and general information about the event. Stay under 1000 characeters.</p>
       <textarea name="desc-description" id="desc-field" aria-describedby="desc-help" required></textarea>
       <div class="callout warn hidden" id="lrg-rep">
         <p>Your description is too long. Shorten it down and stay under 1000 characters, then try and copy again.</p>
       </div>
+      <div class="datetime-help">
+      <label for="time-field">Time</label>
+      <p class="help-text" id="time-help">Event time in CET (server time)</p>
+      <input type="time" style="width: 200px" id="time-field" aria-describedby="time-help" required>
+      </div>
+      <div class="datetime-help">
       <label for="date-field">Date</label>
-      <p class="help-text" id="date-help">When will the event take place (Example: 20/1/2019, 8 PM CET)</p>
-      <input type="text" id="date-field" aria-describedby="date-help" required>
-      <label for="dura-field">Duration</label>
+      <p class="help-text" id="date-help">Date for the event DD.MM.YYYY </p>
+      <input type="date" style="width: 200px" id="date-field" aria-describedby="date-help" min="2000-01-01" required>
+      </div>
+      <div class="clear"><label for="dura-field">Duration</label></div>
       <p class="help-text" id="dura-help">How long is the event expected to take? (Example: 3~ hours)</p>
-      <input type="text" id="dura-field" aria-describedby="dura-help" required>
+      <input type="text" style="width: 150px" id="dura-field" aria-describedby="dura-help" required>
       <label>Application typeform</label>
       <p class="help-text" id="syntax-help">Copy the text below and paste it into the appropriate channel. Note: This field will be empty until all required fields are filled in</p>
       <div class="callout syntaxbox">
@@ -59,9 +82,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js" integrity="sha256-Nd2xznOkrE9HkrAMi4xWy/hXkQraXioBg9iYsBrcFrs=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
     <script src="js/event.js"></script>
-    <script>
+    <script >
       $(document).foundation();
       $(document).ready(pageLoad('create'));
+
+      //Hide~display 'Other' box
+      $(function() {
+        $('#title-field').change(function(){
+        $('.hidden').hide();
+        $('#' + $(this).val()).css('display', 'inline-block')();
+        });
+      });
+
+      //Formatted dating
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+      if(dd<10){
+        dd='0'+dd
+      } 
+      if(mm<10){
+        mm='0'+mm
+      } 
+      today = yyyy+'-'+mm+'-'+dd;
+      document.getElementById("date-field").setAttribute("min", today);
+
     </script>
   </body>
 </html>

@@ -42,14 +42,14 @@ input:required:invalid, textarea:required:invalid {
 
 
 
-input[type="text"], select {
+input[type="text"], input[type="date"], input[type="time"], select {
     height: 2.125rem;
     font-size: 0.875rem;
     border-radius: 0.1875rem;
 }
 
 @supports (-webkit-overflow-scrolling: touch) {
-    input[type="text"], select {
+    input[type="text"], input[type="date"], input[type="time"], select {
         height: 2.4375rem;
         font-size: 1rem;
     }
@@ -60,6 +60,8 @@ body:not(.light) [type=text]:focus {
 }
 
 body:not(.light) input[type="text"],
+body:not(.light) input[type="date"],
+body:not(.light) input[type="time"],
 body:not(.light) select,
 body:not(.light) .input-group-label,
 body:not(.light) div.syntaxbox,
@@ -208,6 +210,10 @@ body.light .mbox, body.light .reveal {
     padding: 0.5rem;
 }
 
+.inlineblock {
+    display: inline-block
+}
+
 .input-group > :first-child {
     border-radius: 0.1875rem 0 0 0.1875rem;
 }
@@ -225,8 +231,26 @@ body.light .mbox, body.light .reveal {
 }
 
 textarea, textarea:focus  {
-    min-height: 15rem;
+    min-height: 10rem;
+    width: 30rem;
     border: 0.0625rem solid #cacaca;
     border-radius: 0.1875rem;
     font-size: 0.875rem;
+}
+
+.datetime-help {
+    float: left;
+    text-align: left;
+    margin-right: 1rem;
+}
+
+.clear {
+    clear: both;
+}
+
+input[type="date"]:hover::-webkit-calendar-picker-indicator {
+    background-color: transparent;
+}
+input::-webkit-inner-spin-button {
+    display: none;
 }
