@@ -65,7 +65,7 @@
       </div>
       <div class="datetime-help">
       <label for="date-field">Date</label>
-      <p class="help-text" id="date-help">Date for the event DD.MM.YYYY </p>
+      <p class="help-text" id="date-help">Date for the event MM.DD.YYYY </p>
       <input type="date" style="width: 200px" id="date-field" aria-describedby="date-help" val="24-12-2000" required>
       </div>
       <div class="clear"><label for="dura-field">Duration</label></div>
@@ -86,7 +86,6 @@
     <script >
       $(document).foundation();
       $(document).ready(pageLoad('create'));
-
       //Hide~display 'Other' box
       $(function() {
         $('#title-field').change(function(){
@@ -94,7 +93,6 @@
         $('#' + $(this).val()).css('display', 'inline-block')();
         });
       });
-
       //Formatted dating
       var today = new Date();
       var dd = today.getDate();
@@ -108,7 +106,6 @@
       } 
       today = yyyy+'-'+mm+'-'+dd;
       document.getElementById("date-field").setAttribute("min", today);
-
     </script>
   </body>
 </html>
